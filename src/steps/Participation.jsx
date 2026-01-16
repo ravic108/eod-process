@@ -4,9 +4,14 @@ import generatedData from './ParticipationGenerated.json'
 
 function Participation({ stepName = 'Participation' }) {
   const [showGenerated, setShowGenerated] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleGenerateClick = () => {
-    setShowGenerated(true)
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+      setShowGenerated(true)
+    }, 1500)
   }
 
   const currentData = showGenerated ? generatedData : data
@@ -41,8 +46,14 @@ function Participation({ stepName = 'Participation' }) {
       <div className="generate-button-container">
         <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Apply Participation</button>
       </div>
-      <div className="status-message">
-        {showGenerated && `${stepName} Successful!`}
+      <div className={`status-message ${isLoading ? 'loading' : ''}`}>
+        {isLoading && (
+          <>
+            <span className="spinner"></span>
+            Generating...
+          </>
+        )}
+        {showGenerated && !isLoading && `${stepName} Successful!`}
       </div>
       <div className="accounts-table-container">
         {renderTable('Accounts', currentData.accounts)}
