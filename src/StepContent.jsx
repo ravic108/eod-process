@@ -1,5 +1,6 @@
 import PlugTrade from './steps/PlugTrade'
 import RateReset from './steps/RateReset'
+import Penalties from './steps/Penalties'
 import Participation from './steps/Participation'
 import CashSweep from './steps/CashSweep'
 import ReverseSweep from './steps/ReverseSweep'
@@ -9,6 +10,7 @@ import SignOff from './steps/SignOff'
 const stepComponents = {
   'Plug-trade': PlugTrade,
   'Rate Reset': RateReset,
+  'Penalties': Penalties,
   'Participation': Participation,
   'Cash Sweep to Stamford': CashSweep,
   'Reverse Sweep': ReverseSweep,

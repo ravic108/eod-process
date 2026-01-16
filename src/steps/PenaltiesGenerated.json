@@ -1,0 +1,9 @@
+{
+  "penalties": [
+    { "category": "Total Penalties", "value": "$15,250.00" }
+  ],
+  "adjustments": [
+    { "category": "Penalty Adjustment", "value": "$2,500.00" },
+    { "category": "Status", "value": "Completed" }
+  ]
+}
