@@ -1,0 +1,10 @@
+{
+  "previousRates": [
+    { "category": "Current Rate", "value": "0.00%" },
+    { "category": "Effective Date", "value": "N/A" }
+  ],
+  "newRates": [
+    { "category": "New Rate", "value": "0.00%" },
+    { "category": "Reset Status", "value": "Pending" }
+  ]
+}

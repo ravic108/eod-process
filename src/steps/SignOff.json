@@ -1,0 +1,10 @@
+{
+  "verifications": [
+    { "category": "Cash Sweep", "value": "Pending" },
+    { "category": "Rate Reset", "value": "Pending" }
+  ],
+  "approvals": [
+    { "category": "Manager Approval", "value": "Pending" },
+    { "category": "Final Sign-Off", "value": "Pending" }
+  ]
+}

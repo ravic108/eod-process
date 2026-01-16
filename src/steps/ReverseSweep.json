@@ -1,0 +1,10 @@
+{
+  "sweeps": [
+    { "category": "Reverse Amount", "value": "$0.00" },
+    { "category": "Total Reversed", "value": "$0.00" }
+  ],
+  "status": [
+    { "category": "Process Status", "value": "Pending" },
+    { "category": "Verification Status", "value": "Pending" }
+  ]
+}
