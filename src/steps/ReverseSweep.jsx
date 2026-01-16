@@ -41,11 +41,9 @@ function ReverseSweep({ stepName = 'Reverse Sweep' }) {
       <div className="generate-button-container">
         <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Reverse Sweep Cash</button>
       </div>
-      {showGenerated && (
-        <div className="status-message">
-          {stepName} Successful!
-        </div>
-      )}
+      <div className="status-message">
+        {showGenerated && `${stepName} Successful!`}
+      </div>
       <div className="sweeps-table-container">
         {renderTable('Sweeps', currentData.sweeps)}
       </div>

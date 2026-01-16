@@ -41,11 +41,9 @@ function Participation({ stepName = 'Participation' }) {
       <div className="generate-button-container">
         <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Apply Participation</button>
       </div>
-      {showGenerated && (
-        <div className="status-message">
-          {stepName} Successful!
-        </div>
-      )}
+      <div className="status-message">
+        {showGenerated && `${stepName} Successful!`}
+      </div>
       <div className="accounts-table-container">
         {renderTable('Accounts', currentData.accounts)}
       </div>

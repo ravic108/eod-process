@@ -41,11 +41,9 @@ function PlugTrade({ stepName = 'Plug-trade' }) {
       <div className="generate-button-container">
         <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Generate Plug-trade</button>
       </div>
-      {showGenerated && (
-        <div className="status-message">
-          {stepName} Successful!
-        </div>
-      )}
+      <div className="status-message">
+        {showGenerated && `${stepName} Successful!`}
+      </div>
       <div className="assets-table-container">
         {renderTable('Assets', currentData.assets)}
       </div>

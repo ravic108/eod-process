@@ -41,11 +41,9 @@ function RateReset({ stepName = 'Rate Reset' }) {
       <div className="generate-button-container">
         <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Apply today's Rate</button>
       </div>
-      {showGenerated && (
-        <div className="status-message">
-          {stepName} Successful!
-        </div>
-      )}
+      <div className="status-message">
+        {showGenerated && `${stepName} Successful!`}
+      </div>
       <div className="previous-rates-table-container">
         {renderTable('Previous Rates', currentData.previousRates)}
       </div>

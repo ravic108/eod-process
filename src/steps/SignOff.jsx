@@ -41,11 +41,9 @@ function SignOff({ stepName = 'Sign-off' }) {
       <div className="generate-button-container">
         <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Approve</button>
       </div>
-      {showGenerated && (
-        <div className="status-message">
-          {stepName} Successful!
-        </div>
-      )}
+      <div className="status-message">
+        {showGenerated && `${stepName} Successful!`}
+      </div>
       <div className="verifications-table-container">
         {renderTable('Verifications', currentData.verifications)}
       </div>

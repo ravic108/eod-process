@@ -41,11 +41,9 @@ function CashSweep({ stepName = 'Cash Sweep to Stamford' }) {
       <div className="generate-button-container">
         <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Sweep Cash</button>
       </div>
-      {showGenerated && (
-        <div className="status-message">
-          {stepName} Successful!
-        </div>
-      )}
+      <div className="status-message">
+        {showGenerated && `${stepName} Successful!`}
+      </div>
       <div className="transactions-table-container">
         {renderTable('Transactions', currentData.transactions)}
       </div>

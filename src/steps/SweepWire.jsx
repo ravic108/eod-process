@@ -41,11 +41,9 @@ function SweepWire({ stepName = 'Sweep Wire' }) {
       <div className="generate-button-container">
         <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Generate Sweep Wire</button>
       </div>
-      {showGenerated && (
-        <div className="status-message">
-          {stepName} Successful!
-        </div>
-      )}
+      <div className="status-message">
+        {showGenerated && `${stepName} Successful!`}
+      </div>
       <div className="transfers-table-container">
         {renderTable('Transfers', currentData.transfers)}
       </div>
