@@ -2,7 +2,7 @@ import Stepper from './Stepper'
 import './App.css'
 
 function App() {
-  const steps = ['Rate Reset', 'Penalties', 'Plug-trade', 'Participation', 'Cash Sweep to Stamford', 'Reverse Sweep', 'Sweep Wire', 'Sign-off'];
+  const steps = ['Rate Reset', 'Penalties', 'Plug-trade', 'Participation', 'NRCC', 'Cash Sweep to Stamford', 'Reverse Sweep', 'Sweep Wire', 'Sign-off'];
 
   return (
     <>

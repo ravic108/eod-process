@@ -1,0 +1,9 @@
+{
+  "nrccData": [
+    { "category": "NRCC Balance", "value": "$0.00" }
+  ],
+  "summary": [
+    { "category": "Total NRCC", "value": "$0.00" },
+    { "category": "Status", "value": "Pending" }
+  ]
+}
