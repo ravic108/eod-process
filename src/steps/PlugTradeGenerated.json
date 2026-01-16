@@ -1,0 +1,9 @@
+{
+  "assets": [
+    { "category": "Total Assets", "value": "$1,250,450.75" }
+  ],
+  "liabilities": [
+    { "category": "Liability Trade", "value": "$875,300.50" },
+    { "category": "Plug Trade", "value": "$375,150.25" }
+  ]
+}

@@ -23,7 +23,7 @@ function StepContent({ stepName, currentStep, totalSteps }) {
     <div className="step-content">
       <h2>{stepName}</h2>
       <p>Step {currentStep} of {totalSteps}</p>
-      {StepComponent && <StepComponent />}
+      {StepComponent && <StepComponent stepName={stepName} />}
     </div>
   )
 }

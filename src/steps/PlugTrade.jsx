@@ -1,6 +1,15 @@
+import { useState } from 'react'
 import data from './PlugTrade.json'
+import generatedData from './PlugTradeGenerated.json'
 
-function PlugTrade() {
+function PlugTrade({ stepName = 'Plug-trade' }) {
+  const [showGenerated, setShowGenerated] = useState(false)
+
+  const handleGenerateClick = () => {
+    setShowGenerated(true)
+  }
+
+  const currentData = showGenerated ? generatedData : data
 
   const renderTable = (title, rows) => (
     <div className="table-container">
@@ -30,13 +39,18 @@ function PlugTrade() {
         <p>Verify the Assets match the sum of Liabilities and Plug Trade</p>
       </div>
       <div className="generate-button-container">
-        <button className="generate-btn">Generate Plug-trade</button>
+        <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Generate Plug-trade</button>
       </div>
+      {showGenerated && (
+        <div className="status-message">
+          {stepName} Successful!
+        </div>
+      )}
       <div className="assets-table-container">
-        {renderTable('Assets', data.assets)}
+        {renderTable('Assets', currentData.assets)}
       </div>
       <div className="liabilities-table-container">
-        {renderTable('Liabilities', data.liabilities)}
+        {renderTable('Liabilities', currentData.liabilities)}
       </div>
     </div>
   ) 
