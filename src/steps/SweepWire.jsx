@@ -25,7 +25,12 @@ function SweepWire() {
 
   return (
     <div className="step-details">
-      <p>Execute sweep wire transfer</p>
+      <div className="step-details-header">
+        <p>Execute sweep wire transfer</p>
+      </div>
+      <div className="generate-button-container">
+        <button className="generate-btn">Generate Sweep Wire</button>
+      </div>
       <div className="transfers-table-container">
         {renderTable('Transfers', data.transfers)}
       </div>

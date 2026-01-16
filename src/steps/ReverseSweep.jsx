@@ -25,7 +25,12 @@ function ReverseSweep() {
 
   return (
     <div className="step-details">
-      <p>Perform reverse sweep operations</p>
+      <div className="step-details-header">
+        <p>Perform reverse sweep operations</p>
+      </div>
+      <div className="generate-button-container">
+        <button className="generate-btn">Reverse Sweep Cash</button>
+      </div>
       <div className="sweeps-table-container">
         {renderTable('Sweeps', data.sweeps)}
       </div>

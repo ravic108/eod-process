@@ -25,7 +25,12 @@ function RateReset() {
 
   return (
     <div className="step-details">
-      <p>Perform rate reset operations</p>
+      <div className="step-details-header">
+        <p>Perform rate reset operations</p>
+      </div>
+      <div className="generate-button-container">
+        <button className="generate-btn">Apply today's Rate</button>
+      </div>
       <div className="previous-rates-table-container">
         {renderTable('Previous Rates', data.previousRates)}
       </div>

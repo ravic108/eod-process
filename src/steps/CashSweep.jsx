@@ -25,7 +25,12 @@ function CashSweep() {
 
   return (
     <div className="step-details">
-      <p>Execute cash sweep to Stamford</p>
+      <div className="step-details-header">
+        <p>Execute cash sweep to Stamford</p>
+      </div>
+      <div className="generate-button-container">
+        <button className="generate-btn">Sweep Cash</button>
+      </div>
       <div className="transactions-table-container">
         {renderTable('Transactions', data.transactions)}
       </div>

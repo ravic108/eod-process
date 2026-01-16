@@ -26,7 +26,12 @@ function PlugTrade() {
 
   return (
     <div className="step-details">
-      <p>Verify the Assets match the sum of Liabilities and Plug Trade</p>
+      <div className="step-details-header">
+        <p>Verify the Assets match the sum of Liabilities and Plug Trade</p>
+      </div>
+      <div className="generate-button-container">
+        <button className="generate-btn">Generate Plug-trade</button>
+      </div>
       <div className="assets-table-container">
         {renderTable('Assets', data.assets)}
       </div>

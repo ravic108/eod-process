@@ -25,7 +25,12 @@ function Participation() {
 
   return (
     <div className="step-details">
-      <p>Review participation data</p>
+      <div className="step-details-header">
+        <p>Review participation data</p>
+      </div>
+      <div className="generate-button-container">
+        <button className="generate-btn">Apply Participation</button>
+      </div>
       <div className="accounts-table-container">
         {renderTable('Accounts', data.accounts)}
       </div>

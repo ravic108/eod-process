@@ -25,7 +25,12 @@ function SignOff() {
 
   return (
     <div className="step-details">
-      <p>Sign off on end of day process</p>
+      <div className="step-details-header">
+        <p>Sign off on end of day process</p>
+      </div>
+      <div className="generate-button-container">
+        <button className="generate-btn">Approve</button>
+      </div>
       <div className="verifications-table-container">
         {renderTable('Verifications', data.verifications)}
       </div>
