@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import data from './CashSweep.json'
+import generatedData from './CashSweepGenerated.json'
 
-function CashSweep() {
+function CashSweep({ stepName = 'Cash Sweep to Stamford' }) {
+  const [showGenerated, setShowGenerated] = useState(false)
+
+  const handleGenerateClick = () => {
+    setShowGenerated(true)
+  }
+
+  const currentData = showGenerated ? generatedData : data
+
   const renderTable = (title, rows) => (
     <div className="table-container">
       <h3 style={{ color: 'black' }}>{title}</h3>
@@ -29,13 +39,18 @@ function CashSweep() {
         <p>Execute cash sweep to Stamford</p>
       </div>
       <div className="generate-button-container">
-        <button className="generate-btn">Sweep Cash</button>
+        <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Sweep Cash</button>
       </div>
+      {showGenerated && (
+        <div className="status-message">
+          {stepName} Successful!
+        </div>
+      )}
       <div className="transactions-table-container">
-        {renderTable('Transactions', data.transactions)}
+        {renderTable('Transactions', currentData.transactions)}
       </div>
       <div className="status-table-container">
-        {renderTable('Status', data.status)}
+        {renderTable('Status', currentData.status)}
       </div>
     </div>
   ) 

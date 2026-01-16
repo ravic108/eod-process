@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import data from './SweepWire.json'
+import generatedData from './SweepWireGenerated.json'
 
-function SweepWire() {
+function SweepWire({ stepName = 'Sweep Wire' }) {
+  const [showGenerated, setShowGenerated] = useState(false)
+
+  const handleGenerateClick = () => {
+    setShowGenerated(true)
+  }
+
+  const currentData = showGenerated ? generatedData : data
+
   const renderTable = (title, rows) => (
     <div className="table-container">
       <h3 style={{ color: 'black' }}>{title}</h3>
@@ -29,13 +39,18 @@ function SweepWire() {
         <p>Execute sweep wire transfer</p>
       </div>
       <div className="generate-button-container">
-        <button className="generate-btn">Generate Sweep Wire</button>
+        <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Generate Sweep Wire</button>
       </div>
+      {showGenerated && (
+        <div className="status-message">
+          {stepName} Successful!
+        </div>
+      )}
       <div className="transfers-table-container">
-        {renderTable('Transfers', data.transfers)}
+        {renderTable('Transfers', currentData.transfers)}
       </div>
       <div className="details-table-container">
-        {renderTable('Details', data.details)}
+        {renderTable('Details', currentData.details)}
       </div>
     </div>
   ) 

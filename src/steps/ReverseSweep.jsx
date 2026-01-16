@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import data from './ReverseSweep.json'
+import generatedData from './ReverseSweepGenerated.json'
 
-function ReverseSweep() {
+function ReverseSweep({ stepName = 'Reverse Sweep' }) {
+  const [showGenerated, setShowGenerated] = useState(false)
+
+  const handleGenerateClick = () => {
+    setShowGenerated(true)
+  }
+
+  const currentData = showGenerated ? generatedData : data
+
   const renderTable = (title, rows) => (
     <div className="table-container">
       <h3 style={{ color: 'black' }}>{title}</h3>
@@ -29,13 +39,18 @@ function ReverseSweep() {
         <p>Perform reverse sweep operations</p>
       </div>
       <div className="generate-button-container">
-        <button className="generate-btn">Reverse Sweep Cash</button>
+        <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Reverse Sweep Cash</button>
       </div>
+      {showGenerated && (
+        <div className="status-message">
+          {stepName} Successful!
+        </div>
+      )}
       <div className="sweeps-table-container">
-        {renderTable('Sweeps', data.sweeps)}
+        {renderTable('Sweeps', currentData.sweeps)}
       </div>
       <div className="status-table-container">
-        {renderTable('Status', data.status)}
+        {renderTable('Status', currentData.status)}
       </div>
     </div>
   ) 

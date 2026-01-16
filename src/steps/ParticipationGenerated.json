@@ -1,0 +1,10 @@
+{
+  "accounts": [
+    { "category": "Participating Accounts", "value": "245" },
+    { "category": "Total Accounts", "value": "300" }
+  ],
+  "metrics": [
+    { "category": "Participation Rate", "value": "81.67%" },
+    { "category": "Review Status", "value": "Completed" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "transfers": [
+    { "category": "Wire Amount", "value": "$2,000,000.00" },
+    { "category": "Total Transferred", "value": "$2,000,000.00" }
+  ],
+  "details": [
+    { "category": "Transfer Status", "value": "Completed" },
+    { "category": "Confirmation Status", "value": "Confirmed" }
+  ]
+}

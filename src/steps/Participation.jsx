@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import data from './Participation.json'
+import generatedData from './ParticipationGenerated.json'
 
-function Participation() {
+function Participation({ stepName = 'Participation' }) {
+  const [showGenerated, setShowGenerated] = useState(false)
+
+  const handleGenerateClick = () => {
+    setShowGenerated(true)
+  }
+
+  const currentData = showGenerated ? generatedData : data
+
   const renderTable = (title, rows) => (
     <div className="table-container">
       <h3 style={{ color: 'black' }}>{title}</h3>
@@ -29,13 +39,18 @@ function Participation() {
         <p>Review participation data</p>
       </div>
       <div className="generate-button-container">
-        <button className="generate-btn">Apply Participation</button>
+        <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Apply Participation</button>
       </div>
+      {showGenerated && (
+        <div className="status-message">
+          {stepName} Successful!
+        </div>
+      )}
       <div className="accounts-table-container">
-        {renderTable('Accounts', data.accounts)}
+        {renderTable('Accounts', currentData.accounts)}
       </div>
       <div className="metrics-table-container">
-        {renderTable('Metrics', data.metrics)}
+        {renderTable('Metrics', currentData.metrics)}
       </div>
     </div>
   ) 

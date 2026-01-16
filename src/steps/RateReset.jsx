@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import data from './RateReset.json'
+import generatedData from './RateResetGenerated.json'
 
-function RateReset() {
+function RateReset({ stepName = 'Rate Reset' }) {
+  const [showGenerated, setShowGenerated] = useState(false)
+
+  const handleGenerateClick = () => {
+    setShowGenerated(true)
+  }
+
+  const currentData = showGenerated ? generatedData : data
+
   const renderTable = (title, rows) => (
     <div className="table-container">
       <h3 style={{ color: 'black' }}>{title}</h3>
@@ -29,13 +39,18 @@ function RateReset() {
         <p>Perform rate reset operations</p>
       </div>
       <div className="generate-button-container">
-        <button className="generate-btn">Apply today's Rate</button>
+        <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Apply today's Rate</button>
       </div>
+      {showGenerated && (
+        <div className="status-message">
+          {stepName} Successful!
+        </div>
+      )}
       <div className="previous-rates-table-container">
-        {renderTable('Previous Rates', data.previousRates)}
+        {renderTable('Previous Rates', currentData.previousRates)}
       </div>
       <div className="new-rates-table-container">
-        {renderTable('New Rates', data.newRates)}
+        {renderTable('New Rates', currentData.newRates)}
       </div>
     </div>
   ) 

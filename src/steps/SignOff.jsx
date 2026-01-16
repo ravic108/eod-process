@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import data from './SignOff.json'
+import generatedData from './SignOffGenerated.json'
 
-function SignOff() {
+function SignOff({ stepName = 'Sign-off' }) {
+  const [showGenerated, setShowGenerated] = useState(false)
+
+  const handleGenerateClick = () => {
+    setShowGenerated(true)
+  }
+
+  const currentData = showGenerated ? generatedData : data
+
   const renderTable = (title, rows) => (
     <div className="table-container">
       <h3 style={{ color: 'black' }}>{title}</h3>
@@ -29,13 +39,18 @@ function SignOff() {
         <p>Sign off on end of day process</p>
       </div>
       <div className="generate-button-container">
-        <button className="generate-btn">Approve</button>
+        <button className="generate-btn" onClick={handleGenerateClick} disabled={showGenerated}>Approve</button>
       </div>
+      {showGenerated && (
+        <div className="status-message">
+          {stepName} Successful!
+        </div>
+      )}
       <div className="verifications-table-container">
-        {renderTable('Verifications', data.verifications)}
+        {renderTable('Verifications', currentData.verifications)}
       </div>
       <div className="approvals-table-container">
-        {renderTable('Approvals', data.approvals)}
+        {renderTable('Approvals', currentData.approvals)}
       </div>
     </div>
   ) 
