@@ -1,0 +1,10 @@
+{
+  "transfers": [
+    { "category": "Wire Amount", "value": "$0.00" },
+    { "category": "Total Transferred", "value": "$0.00" }
+  ],
+  "details": [
+    { "category": "Transfer Status", "value": "Pending" },
+    { "category": "Confirmation Status", "value": "Pending" }
+  ]
+}
