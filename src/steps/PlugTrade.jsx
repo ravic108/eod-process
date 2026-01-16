@@ -2,7 +2,7 @@ import { useState } from 'react'
 import data from './PlugTrade.json'
 import generatedData from './PlugTradeGenerated.json'
 
-function PlugTrade({ stepName = 'Plug-trade' }) {
+function PlugTrade({ stepName = 'Plug-trade', onGenerationComplete }) {
   const [showGenerated, setShowGenerated] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -11,6 +11,7 @@ function PlugTrade({ stepName = 'Plug-trade' }) {
     setTimeout(() => {
       setIsLoading(false)
       setShowGenerated(true)
+      onGenerationComplete && onGenerationComplete()
     }, 1500)
   }
 

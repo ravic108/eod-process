@@ -2,7 +2,7 @@ import { useState } from 'react'
 import data from './CashSweep.json'
 import generatedData from './CashSweepGenerated.json'
 
-function CashSweep({ stepName = 'Cash Sweep to Stamford' }) {
+function CashSweep({ stepName = 'Cash Sweep to Stamford', onGenerationComplete }) {
   const [showGenerated, setShowGenerated] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -11,6 +11,7 @@ function CashSweep({ stepName = 'Cash Sweep to Stamford' }) {
     setTimeout(() => {
       setIsLoading(false)
       setShowGenerated(true)
+      onGenerationComplete && onGenerationComplete()
     }, 1500)
   }
 

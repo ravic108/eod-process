@@ -2,7 +2,7 @@ import { useState } from 'react'
 import data from './RateReset.json'
 import generatedData from './RateResetGenerated.json'
 
-function RateReset({ stepName = 'Rate Reset' }) {
+function RateReset({ stepName = 'Rate Reset', onGenerationComplete }) {
   const [showGenerated, setShowGenerated] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -11,6 +11,7 @@ function RateReset({ stepName = 'Rate Reset' }) {
     setTimeout(() => {
       setIsLoading(false)
       setShowGenerated(true)
+      onGenerationComplete && onGenerationComplete()
     }, 1500)
   }
 

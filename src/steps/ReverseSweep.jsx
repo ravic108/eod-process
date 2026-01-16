@@ -2,7 +2,7 @@ import { useState } from 'react'
 import data from './ReverseSweep.json'
 import generatedData from './ReverseSweepGenerated.json'
 
-function ReverseSweep({ stepName = 'Reverse Sweep' }) {
+function ReverseSweep({ stepName = 'Reverse Sweep', onGenerationComplete }) {
   const [showGenerated, setShowGenerated] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -11,6 +11,7 @@ function ReverseSweep({ stepName = 'Reverse Sweep' }) {
     setTimeout(() => {
       setIsLoading(false)
       setShowGenerated(true)
+      onGenerationComplete && onGenerationComplete()
     }, 1500)
   }
 

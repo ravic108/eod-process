@@ -2,7 +2,7 @@ import { useState } from 'react'
 import data from './SweepWire.json'
 import generatedData from './SweepWireGenerated.json'
 
-function SweepWire({ stepName = 'Sweep Wire' }) {
+function SweepWire({ stepName = 'Sweep Wire', onGenerationComplete }) {
   const [showGenerated, setShowGenerated] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -11,6 +11,7 @@ function SweepWire({ stepName = 'Sweep Wire' }) {
     setTimeout(() => {
       setIsLoading(false)
       setShowGenerated(true)
+      onGenerationComplete && onGenerationComplete()
     }, 1500)
   }
 

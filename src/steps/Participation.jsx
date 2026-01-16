@@ -2,7 +2,7 @@ import { useState } from 'react'
 import data from './Participation.json'
 import generatedData from './ParticipationGenerated.json'
 
-function Participation({ stepName = 'Participation' }) {
+function Participation({ stepName = 'Participation', onGenerationComplete }) {
   const [showGenerated, setShowGenerated] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -11,6 +11,7 @@ function Participation({ stepName = 'Participation' }) {
     setTimeout(() => {
       setIsLoading(false)
       setShowGenerated(true)
+      onGenerationComplete && onGenerationComplete()
     }, 1500)
   }
 

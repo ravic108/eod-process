@@ -2,7 +2,7 @@ import { useState } from 'react'
 import data from './SignOff.json'
 import generatedData from './SignOffGenerated.json'
 
-function SignOff({ stepName = 'Sign-off' }) {
+function SignOff({ stepName = 'Sign-off', onGenerationComplete }) {
   const [showGenerated, setShowGenerated] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -11,6 +11,7 @@ function SignOff({ stepName = 'Sign-off' }) {
     setTimeout(() => {
       setIsLoading(false)
       setShowGenerated(true)
+      onGenerationComplete && onGenerationComplete()
     }, 1500)
   }
 

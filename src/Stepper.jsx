@@ -5,9 +5,10 @@ import './Stepper.css'
 
 function Stepper({ steps = [], initialStep = 0 }) {
   const [activeStep, setActiveStep] = useState(initialStep)
+  const [completedSteps, setCompletedSteps] = useState({})
 
   const handleNext = () => {
-    if (activeStep < steps.length - 1) {
+    if (activeStep < steps.length - 1 && completedSteps[activeStep]) {
       setActiveStep(activeStep + 1)
     }
   }
@@ -16,6 +17,13 @@ function Stepper({ steps = [], initialStep = 0 }) {
     if (activeStep > 0) {
       setActiveStep(activeStep - 1)
     }
+  }
+
+  const handleStepComplete = () => {
+    setCompletedSteps(prev => ({
+      ...prev,
+      [activeStep]: true
+    }))
   }
 
   return (
@@ -38,6 +46,7 @@ function Stepper({ steps = [], initialStep = 0 }) {
         stepName={steps[activeStep]}
         currentStep={activeStep + 1}
         totalSteps={steps.length}
+        onGenerationComplete={handleStepComplete}
       />
 
       <div className="button-group">
@@ -51,7 +60,7 @@ function Stepper({ steps = [], initialStep = 0 }) {
         <button
           className="btn btn-next"
           onClick={handleNext}
-          disabled={activeStep === steps.length - 1}
+          disabled={activeStep === steps.length - 1 || !completedSteps[activeStep]}
         >
           Next
         </button>

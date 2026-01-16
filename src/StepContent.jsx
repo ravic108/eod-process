@@ -16,14 +16,14 @@ const stepComponents = {
   'Sign-off': SignOff,
 }
 
-function StepContent({ stepName, currentStep, totalSteps }) {
+function StepContent({ stepName, currentStep, totalSteps, onGenerationComplete }) {
   const StepComponent = stepComponents[stepName]
 
   return (
     <div className="step-content">
       <h2>{stepName}</h2>
       <p>Step {currentStep} of {totalSteps}</p>
-      {StepComponent && <StepComponent stepName={stepName} />}
+      {StepComponent && <StepComponent stepName={stepName} onGenerationComplete={onGenerationComplete} />}
     </div>
   )
 }
